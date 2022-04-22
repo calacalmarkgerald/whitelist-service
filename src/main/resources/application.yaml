@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: whitelist-service
+  datasource:
+    url: jdbc:h2:file:./data/whitelist_db
+    username: sa
+    driver-class-name: org.h2.Driver
+    password: s3curedP@ss
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      dialect: org.hibernate.dialect.H2Dialect
+      format_sql: true
+    show-sql: true
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+  sql:
+    init:
+      mode: never #Set this to 'always' to run the migration script in data.sql at application start up

@@ -1,0 +1,10 @@
+INSERT INTO app(id, app_name) VALUES(1, 'app1');
+INSERT INTO app(id, app_name) VALUES(2, 'app2');
+INSERT INTO environment(id, environment_name) VALUES(1, 'DEV');
+INSERT INTO environment(id, environment_name) VALUES(2, 'STAGE');
+INSERT INTO environment(id, environment_name) VALUES(3, 'PROD');
+INSERT INTO whitelist(id, client_name, client_ip, app_id, environment_id) VALUES(1, 'client1', '10.10.10.1', 1, 1);
+INSERT INTO whitelist(id, client_name, client_ip, app_id, environment_id) VALUES(2, 'client1', '10.10.10.1', 1, 2);
+INSERT INTO whitelist(id, client_name, client_ip, app_id, environment_id) VALUES(3, 'client2', '10.10.10.2', 2, 3);
+INSERT INTO whitelist(id, client_name, client_ip, app_id, environment_id) VALUES(4, 'client3', '10.10.10.3', 2, 3);
+INSERT INTO whitelist(id, client_name, client_ip, app_id, environment_id) VALUES(5, 'client4', '10.10.10.4', 2, 3);
