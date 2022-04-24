@@ -126,4 +126,4 @@ To run tests, run the following command
 
 | Path Parameter | Type     | Description                |
 |:---------------|:---------|:---------------------------|
-| `id`           | `string` | **Optional**. Whitelist Id |
+| `id`           | `string` | **Required**. Whitelist Id |
