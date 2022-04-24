@@ -25,7 +25,7 @@ class WhitelistRepositoryTest {
 
     @Test
     @Sql("classpath:sql/test-data.sql")
-    void givenWhitelistedClient1Exist_whenFindOne_thenReturnClient1() {
+    void findOne_ShouldReturnClient_WhenExistInDatabase() {
         Optional<Whitelist> client1 = this.whitelistRepository.findOne("client1", "10.10.10.1",
                 1, 1);
         Assertions.assertThat(client1).hasValueSatisfying(whitelist -> {
@@ -39,7 +39,7 @@ class WhitelistRepositoryTest {
 
     @Test
     @Sql("classpath:sql/test-data.sql")
-    void givenWhitelistedClients_whenFindAllByClientNameAndEnvironmentAndApp_thenReturnListOfWhitelistedClients() {
+    void findAllByClientNameAndEnvironmentAndApp_ShouldReturnListOfWhitelists_WhenDatabaseNotEmpty() {
         List<Whitelist> whitelistListedClients = this.whitelistRepository
                 .findAllByClientNameAndEnvironmentAndApp(null, 1, null);
 
@@ -48,7 +48,7 @@ class WhitelistRepositoryTest {
 
     @Test
     @Sql("classpath:sql/test-data.sql")
-    void givenWhitelistedClients_whenFindAllClientIpsByClientNameAndEnvironmentAndApp_thenReturnListOfWhitelistedClients() {
+    void findAllClientIpsByClientNameAndEnvironmentAndApp_ShouldReturnListOfWhitelistedClientIps_WhenDatabaseNotEmpty() {
         List<String> whitelistListedClientIps = this.whitelistRepository
                 .findAllClientIpsByClientNameAndEnvironmentAndApp(null, null, 3);
 

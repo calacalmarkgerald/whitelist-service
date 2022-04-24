@@ -1,5 +1,7 @@
 package com.iaccessvision.exam.whitelistservice.dto;
 
+import java.util.Objects;
+
 public class WhitelistResponse {
     private Integer id;
     private String clientName;
@@ -55,6 +57,19 @@ public class WhitelistResponse {
 
     public void setEnvironmentName(String environmentName) {
         this.environmentName = environmentName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WhitelistResponse that = (WhitelistResponse) o;
+        return Objects.equals(id, that.id) && Objects.equals(clientName, that.clientName) && Objects.equals(clientIp, that.clientIp) && Objects.equals(appName, that.appName) && Objects.equals(environmentName, that.environmentName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, clientName, clientIp, appName, environmentName);
     }
 
     @Override

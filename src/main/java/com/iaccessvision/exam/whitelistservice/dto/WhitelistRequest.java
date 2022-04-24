@@ -4,6 +4,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
+import java.util.Objects;
 
 public class WhitelistRequest {
     @NotBlank
@@ -18,6 +19,15 @@ public class WhitelistRequest {
     @NotNull
     @Positive
     private Integer environmentId;
+
+    public WhitelistRequest() {}
+
+    public WhitelistRequest(String clientName, String clientIp, Integer appId, Integer environmentId) {
+        this.clientName = clientName;
+        this.clientIp = clientIp;
+        this.appId = appId;
+        this.environmentId = environmentId;
+    }
 
     public String getClientName() {
         return clientName;
@@ -49,6 +59,19 @@ public class WhitelistRequest {
 
     public void setEnvironmentId(Integer environmentId) {
         this.environmentId = environmentId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        WhitelistRequest that = (WhitelistRequest) o;
+        return Objects.equals(clientName, that.clientName) && Objects.equals(clientIp, that.clientIp) && Objects.equals(appId, that.appId) && Objects.equals(environmentId, that.environmentId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientName, clientIp, appId, environmentId);
     }
 
     @Override

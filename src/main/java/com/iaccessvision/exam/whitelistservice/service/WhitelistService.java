@@ -80,7 +80,7 @@ public class WhitelistService {
             whitelist.setClientIp(whitelistRequest.getClientIp());
             whitelist.setApp(app);
             whitelist.setEnvironment(environment);
-            whitelistRepository.save(whitelist);
+            whitelist = whitelistRepository.save(whitelist);
 
             WhitelistResponse whitelistResponse = new WhitelistResponse();
             whitelistResponse.setId(whitelist.getId());
